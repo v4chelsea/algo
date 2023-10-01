@@ -27,26 +27,26 @@ list.printAll();
 
 
 console.log("======== insertLast 호출");
-list.insertLast(5);
 list.insertLast(6);
 list.insertLast(7);
 list.insertLast(8);
+list.insertLast(9);
 list.printAll();
 
 
 console.log("======== getNodeAt 호출");
 list.getNodeAt(3);
-list.getNodeAt(10);
-list.getNodeAt(0);
+list.getNodeAt(8);
+list.getNodeAt(1);
 list.getNodeAt(2);
 
 console.log("======== deleteAt 호출");
-list.deleteAt(3);
+list.deleteAt(1);
 list.printAll();
-list.deleteAt(3);
-list.printAll();
-list.deleteAt(3);
-list.printAll();
+// list.deleteAt();
+// list.printAll();
+// list.deleteAt(3);
+// list.printAll();
 
 
 console.log("======== Clear 호출");

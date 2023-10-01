@@ -76,11 +76,11 @@ class LinkedList{
     }
 
     deleteAt(index){
-        if(index > this.count || index < 0) {
+        if(index >= this.count || index < 0) {
             throw new Error("범위를 넘어섰습니다");
         }
 
-        if (index == this.count){
+        if (index == this.count - 1){
             this.deleteLast();
         } else {
             if (index == 0){
@@ -109,12 +109,17 @@ class LinkedList{
     }
 
     getNodeAt(index){
+        if(index >= this.count || index < 0) {
+            throw new Error("범위를 넘어섰습니다");
+        }
+
         let currentNode = this.head;
 
-        for (let i = 0; i < index - 1 ; i++){
+        while (index != 0){
             currentNode = currentNode.next;
+            index--;
         }
-        
+
         console.log(currentNode.data);
     }
 }
