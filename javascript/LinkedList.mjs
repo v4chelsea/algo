@@ -84,32 +84,39 @@ class LinkedList{
             throw new Error("범위를 넘어섰습니다");
         }
 
-        if (index == this.count - 1){
-            this.deleteLast();
+        let deleteNode = this.head;
+    
+        if (index == 0 && this.count > 1){
+            this.head = this.head.next;
+        } else if (index == 0 && this.count == 1){
+            this.head = null;
         } else {
-            if (index == 0){
-                this.head = this.head.next;
-            } else {
-                let currentNode = this.head;
-                
-                for (let i = 0; i < index - 1 ; i++){
-                    currentNode = currentNode.next;                
-                }
-                currentNode.next = currentNode.next.next;
+            let currentNode = this.head;
+            
+            for (let i = 0; i < index - 1 ; i++){
+                currentNode = currentNode.next;                
             }
-            this.count--;
+            deleteNode = currentNode.next;
+            currentNode.next = currentNode.next.next;
         }
+        this.count--;
+
+        return deleteNode;
     }
 
     deleteLast(){
-        let currentNode = this.head;
+        return this.deleteAt(this.count - 1);
 
-        for (let i = 0; i < this.count - 2 ; i++){
-            currentNode = currentNode.next;
-        } 
+        // let currentNode = this.head;
 
-        currentNode.next = null;
-        this.count--;
+        // for (let i = 0; i < this.count - 2 ; i++){
+        //     currentNode = currentNode.next;
+        // } 
+        // let deleteNode = currentNode.next;
+        // currentNode.next = null;
+        // this.count--;
+
+        // return deleteNode;
     }
 
     getNodeAt(index){
