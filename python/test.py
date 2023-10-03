@@ -1,5 +1,8 @@
 from LinkedList import Node, LinkedList
+from Stack import Stack
 
+
+'''
 node1 = Node(10)
 node2 = Node(3)
 node3 = Node(5)
@@ -50,3 +53,28 @@ list.printAll()
 
 list.clear()
 list.printAll()
+'''
+
+
+stack = Stack()
+
+stack.push(1)
+stack.push(2)
+stack.push(3)
+stack.push(4)
+stack.push(5)
+stack.push(6)
+stack.push(7)
+
+print(stack.pop().data)
+print(stack.pop().data)
+print(stack.pop().data)
+print(stack.pop().data)
+print(stack.pop().data)
+
+print(stack.peek())
+print(stack.isEmpty())
+
+stack.pop()
+stack.pop()
+print(stack.isEmpty())

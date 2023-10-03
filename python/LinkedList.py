@@ -71,32 +71,35 @@ class LinkedList:
         if (index > self.count) or (index < 0):
             IndexError("범위를 넘어섰습니다")
 
-        if index == (self.count - 1):
-            self.deleteLast()
+        deleteNode = self.head
+
+        if (index == 0) and (self.count > 1):
+            self.head = self.head.next
+        elif (index == 0) and (self.count == 1):
+            self.head = None
         else:
-            if (index == 0) and (self.count > 1):
-                self.head = self.head.next
-            elif (index == 0) and (self.count == 1):
-                self.head = None
-            else:
-                currentNode = self.head
+            currentNode = self.head
 
-                for _ in range(index - 1):
-                    currentNode = currentNode.next
+            for _ in range(index - 1):
+                currentNode = currentNode.next
 
-                currentNode.next = currentNode.next.next
+            deleteNode = currentNode.next
+            currentNode.next = currentNode.next.next
 
-            self.count -= 1
+        self.count -= 1
 
+        return deleteNode
 
     def deleteLast(self):
-        currentNode = self.head
+        return self.deleteAt(self.count - 1)
 
-        for _ in range(self.count - 2):
-            currentNode = currentNode.next
+        # currentNode = self.head
 
-        currentNode.next = None
-        self.count -= 1
+        # for _ in range(self.count - 2):
+        #     currentNode = currentNode.next
+
+        # currentNode.next = None
+        # self.count -= 1
 
     def getNodeAt(self, index):
         if (index > self.count) or (index < 0):
