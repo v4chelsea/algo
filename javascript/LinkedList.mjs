@@ -53,6 +53,10 @@ class LinkedList{
         this.count++;
     }
 
+    insertLast2(data){
+        this.insertAt(this.count, data);
+    }
+
     insertLast(data){
         let newNode = new Node(data);
         let currentNode = this.head;

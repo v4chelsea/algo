@@ -45,6 +45,10 @@ class LinkedList:
 
         self.count += 1
 
+    def insertLast2(self, data):
+        self.insertAt(self.count, data)
+
+
     def insertLast(self, data):
         newNode = Node(data)
         currentNode = self.head
